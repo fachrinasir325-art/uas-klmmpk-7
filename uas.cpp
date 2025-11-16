@@ -63,3 +63,31 @@ int main() {
         
         cout << "Pilih menu: ";
         cin >> pilihanMenu;
+
+        if (pilihanMenu == 0) {
+            cout << "\nTerima kasih telah menggunakan program ini!\n";
+            break;
+        }
+
+
+        if (pilihanMenu == 1) {
+            cout << "\nMasukkan jumlah dalam Rupiah: ";
+            cin >> jumlah;
+
+            tampilkanMenu();
+            cin >> tujuan;
+
+            if (tujuan == 0) continue;
+            if (tujuan < 1 || tujuan > 5) {
+                cout << "Pilihan tidak valid!\n";
+                continue;
+            }
+
+            hasil = konversiDariRupiah(jumlah, kurs[tujuan - 1]);
+
+            cout << "\nHasil konversi: " << hasil << " " << nama[tujuan - 1] << endl;
+
+            riwayat[jumlahRiwayat++] =
+                "Rupiah " + to_string(jumlah) +
+                " ke " + nama[tujuan - 1] + " " + to_string(hasil);
+        }
