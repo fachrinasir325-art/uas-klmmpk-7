@@ -91,3 +91,40 @@ int main() {
                 "Rupiah " + to_string(jumlah) +
                 " ke " + nama[tujuan - 1] + " " + to_string(hasil);
         }
+        else if (pilihanMenu == 2) {
+            tampilkanMenu();
+            cin >> asal;
+
+            if (asal == 0) continue;
+            if (asal < 1 || asal > 5) {
+                cout << "Pilihan tidak valid!\n";
+                continue;
+            }
+
+            cout << "\nMasukkan jumlah dalam " << nama[asal - 1] << ": ";
+            cin >> jumlah;
+
+            hasil = konversiKeRupiah(jumlah, kurs[asal - 1]);
+
+            cout << "\nHasil konversi: " << hasil << " Rupiah\n";
+
+            riwayat[jumlahRiwayat++] =
+                nama[asal - 1] + string(" ") + to_string(jumlah) +
+                " → Rupiah " + to_string(hasil);
+        }
+
+
+        else if (pilihanMenu == 3) {
+            cout << "\n--- Pilih Mata Uang Asal ---";
+            tampilkanMenu();
+            cin >> asal;
+
+            cout << "\n--- Pilih Mata Uang Tujuan ---";
+            tampilkanMenu();
+            cin >> tujuan;
+
+            if (asal == 0 || tujuan == 0) continue;
+            if (asal < 1 || asal > 5 || tujuan < 1 || tujuan > 5) {
+                cout << "Pilihan tidak valid!\n";
+                continue;
+            }
