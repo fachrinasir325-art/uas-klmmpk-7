@@ -123,6 +123,10 @@ int main() {
             tampilkanMenu();
             cin >> tujuan;
 
+            if (asal == tujuan){
+                cout << "mata uang sama, silakan coba lagi:)";}
+                continue;
+
          if (asal == 0 || tujuan == 0) continue;
             if (asal < 1 || asal > 5 || tujuan < 1 || tujuan > 5) {
                 cout << "Pilihan tidak valid!\n";
