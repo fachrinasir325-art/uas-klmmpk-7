@@ -123,8 +123,12 @@ int main() {
             tampilkanMenu();
             cin >> tujuan;
 
-            if (asal == 0 || tujuan == 0) continue;
-            cout << "\nMasukkan jumlah dalam " << nama[asal - 1] << ": ";
+         if (asal == 0 || tujuan == 0) continue;
+            if (asal < 1 || asal > 5 || tujuan < 1 || tujuan > 5) {
+                cout << "Pilihan tidak valid!\n";
+                continue;
+            }
+        cout << "\nMasukkan jumlah dalam " << nama[asal - 1] << ": ";
             cin >> jumlah;
 
             hasil = konversiAntarAsing(jumlah, kurs[asal - 1], kurs[tujuan - 1]);
@@ -148,8 +152,3 @@ int main() {
 
     return 0;
 }
-
-            if (asal < 1 || asal > 5 || tujuan < 1 || tujuan > 5) {
-                cout << "Pilihan tidak valid!\n";
-                continue;
-            }
