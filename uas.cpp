@@ -124,6 +124,31 @@ int main() {
             cin >> tujuan;
 
             if (asal == 0 || tujuan == 0) continue;
+            cout << "\nMasukkan jumlah dalam " << nama[asal - 1] << ": ";
+            cin >> jumlah;
+
+            hasil = konversiAntarAsing(jumlah, kurs[asal - 1], kurs[tujuan - 1]);
+
+            cout << "\nHasil konversi: " << hasil << " " << nama[tujuan - 1] << endl;
+
+            riwayat[jumlahRiwayat++] =
+                nama[asal - 1] + string(" ") + to_string(jumlah) +
+                " ke " + nama[tujuan - 1] + " " + to_string(hasil);
+        }
+
+
+        else if (pilihanMenu == 4) {
+            tampilkanRiwayat(riwayat, jumlahRiwayat);
+        }
+
+        else {
+            cout << "Pilihan tidak valid!\n";
+        }
+    }
+
+    return 0;
+}
+
             if (asal < 1 || asal > 5 || tujuan < 1 || tujuan > 5) {
                 cout << "Pilihan tidak valid!\n";
                 continue;
